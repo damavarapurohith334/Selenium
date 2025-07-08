@@ -11,30 +11,29 @@ import com.aventstack.extentreports.ExtentTest;
 import utils.ExtentReportManager;
 
 public class BaseTest {
-	
+
 	public static WebDriver driver;
-	
+
 	public ExtentReports extent;
 	public ExtentTest test;
-	
 
 	@BeforeMethod
 	public void browserSetup() {
-		driver= new ChromeDriver();
-			driver.get("https://demoqa.com/text-box");
-			driver.manage().window().maximize();
-			extent=ExtentReportManager.getReportInstance();
+		driver = new ChromeDriver();
+		driver.get("https://demoqa.com/text-box");
+		driver.manage().window().maximize();
+		extent = ExtentReportManager.getReportInstance();
 
-		
 	}
+
 	// Method is used written to eliminate the extra lines of code
-		public void fillTextBoxs(By locaters, String value) {
-			driver.findElement(locaters).sendKeys(value);
-		}
-		
-		@AfterMethod
-		public void closing() {
-			driver.quit();
-			extent.flush();
-		}
+	public void fillTextBoxs(By locaters, String value) {
+		driver.findElement(locaters).sendKeys(value);
+	}
+
+	@AfterMethod
+	public void closing() {
+		driver.quit();
+		extent.flush();
+	}
 }

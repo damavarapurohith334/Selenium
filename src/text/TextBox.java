@@ -93,7 +93,6 @@ public class TextBox extends BaseTest {
 	@Test(priority = 4, description = "Verify submitted data")
 	public void testSubmitedText(Method method) throws InterruptedException {
 	    test = extent.createTest(method.getName()).assignAuthor("Rohith").assignCategory("Validation");
-
 	    try {
 	        // Reuse logic from testData1() — do not call it from another instance
 	        fillTextBoxs(By.id("userName"), "Rohith");
